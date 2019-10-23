@@ -1,0 +1,24 @@
+openapi: "3.0.1"
+info:
+  title: AnyResponseCodeByAwsProxyDemo
+  version: "1.0"
+paths:
+  /:
+    get:
+      parameters:
+      - name: expect_code
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: 200 response
+          content: {}
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${AnyResponseCodeByAwsProxyDemoFunction.Arn}/invocations
+        responses:
+          default:
+            statusCode: "200"
+        httpMethod: POST
+        type: aws_proxy
