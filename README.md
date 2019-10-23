@@ -98,10 +98,7 @@ echo ${INVOKE_URL}
 ```sh
 curl -s ${INVOKE_URL} | jq
   # {
-  #   "body": {
-  #     "message": "hello world"
-  #   },
-  #   "statusCode": 200
+  #   "message": "hello world"
   # }
 curl -s ${INVOKE_URL} -o /dev/null -w '%{http_code}\n'
   # 200
@@ -112,10 +109,7 @@ curl -s ${INVOKE_URL} -o /dev/null -w '%{http_code}\n'
 ```sh
 curl -s ${INVOKE_URL}?expect_code=400 | jq
   # {
-  #   "statusCode": 400,
-  #   "body": {
-  #     "message": "Bad Request"
-  #   }
+  #   "message": "Bad Request"
   # }
 curl -s ${INVOKE_URL}?expect_code=400 -o /dev/null -w '%{http_code}\n'
   # 400
