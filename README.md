@@ -2,7 +2,53 @@
 
 ## 概要
 
+- [AnyResponseCodeDemo](https://github.com/ot-nemoto/AnyResponseCodeDemo)で指定したレスポンスコードをAPI Gatewayから返却する方法のデモを、統合リクエストで**Lambdaプロキシ統合**を使用した場合に、API GatewayおよびLambdaでの記述内容等の差異を検証したデモ
+
 ## 構成
+
+- クエリパラメータ *expect_code* で指定したレスポンスコードを指定します。
+- 未指定の場合は、デフォルトでは **200** を返します。
+- *expect_code*=**200**
+
+```py
+# json を return
+return {
+  "statusCode": 200,
+  "body": json.dumps({
+    "message": "hello world"
+  })
+}
+```
+
+API Gateway では **statusCode** でレスポンスコードを判断し、**body**の内容を返却する。
+この場合、bodyはString形式にして返却する必要がある。
+
+```json
+{
+  "message": "hello world"
+}
+```
+
+- *expect_code*=**400**
+
+```py
+# Exceptionを発生
+return {
+  "statusCode": 400,
+  "body": json.dumps({
+    "message": "Bad Request"
+  })
+}
+```
+
+レスポンスコードを **statusCode** に設定し、返却したい値を **body** に文字列で指定する。
+他のレスポンスコードについても同様。
+
+```json
+{
+  "message": "Bad Request"
+}
+```
 
 ## デプロイ
 
