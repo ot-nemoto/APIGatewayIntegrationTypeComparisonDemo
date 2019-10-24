@@ -12,6 +12,9 @@ def lambda_handler(event, context):
     if expect_code == '200':
       return {
         "statusCode": expect_code,
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        },
         "body": json.dumps({
           "message": "hello world"
         })
