@@ -15,7 +15,7 @@
 return {
   "statusCode": 200,
   "headers": {
-    "Access-Control-Allow-Origin": "*"
+    "X-Any-Response-Code": "*"
   },
   "body": json.dumps({
     "message": "hello world"

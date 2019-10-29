@@ -13,7 +13,7 @@ def lambda_handler(event, context):
       return {
         "statusCode": expect_code,
         "headers": {
-          "Access-Control-Allow-Origin": "*"
+          "X-Any-Response-Code": "*"
         },
         "body": json.dumps({
           "message": "hello world"
