@@ -25,6 +25,7 @@ return {
 
 API Gateway では **statusCode** でレスポンスコードを判断し、**body**の内容を返却する。
 この場合、bodyはString形式にして返却する必要がある。
+また、ヘッダーのハンドリングもAPI Gatewayではなく、Lambdaのレスポンスで制御する。
 
 ```json
 {
