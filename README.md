@@ -14,6 +14,9 @@
 # json を return
 return {
   "statusCode": 200,
+  "headers": {
+    "X-Any-Response-Code": "*"
+  },
   "body": json.dumps({
     "message": "hello world"
   })
